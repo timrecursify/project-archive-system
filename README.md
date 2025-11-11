@@ -36,4 +36,21 @@ Local Machine (~/Projects/)
 2. **Manual Archive:** Run script from local machine to add new projects
 3. **Automatic Monitoring:** Once archived, Pi keeps it updated
 
+## Quick Commands
+
+```bash
+# Check sync status
+ssh raspberry-pi 'tail -50 /mnt/ssd/logs/applications/git-sync-puller/git-sync-puller-$(date +%Y-%m-%d).log'
+
+# Archive new project
+cd ~/Projects/<project>
+~/Projects/.archive/scripts/active-archive-smart.sh <project>
+
+# Manual sync (test)
+ssh raspberry-pi '/usr/local/bin/archive-scripts/git-sync-puller.sh'
+
+# Check disk space
+ssh raspberry-pi 'df -h / && df -h /mnt/ssd'
+```
+
 **Last Updated:** 2025-11-11
